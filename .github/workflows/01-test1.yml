@@ -1,0 +1,15 @@
+name: First run-name
+on:
+  push:
+jobs:
+  simple-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello World
+        run: echo "Hello, GitHub Actions!"
+
+      - name: Run Multiple Commands
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Environment checks complete."
