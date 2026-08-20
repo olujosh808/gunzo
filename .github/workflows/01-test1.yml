@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v5
       - name: step 3
         run: |
-          echo pwd >> singlefile.txt
+          echo 'pwd' >> singlefile2.txt
           ls -la
           hostname
       - name: upload single file
