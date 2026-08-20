@@ -3,44 +3,44 @@ on:
   push:
     branches:
       - main
+
 jobs:
   simple-job:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
       - name: step 1
         run: |
           pwd
           ls -la
           hostname
-      - name: checkout
-        uses: actions/checkout@v5
+
       - name: step 3
         run: |
-          echo 'pwd' >> singlefile2.txt
-          mkdir artifacts
+          echo 'pwd' >> singlefile.txt
+          mkdir -p artifacts
           echo 'ls -la' >> artifacts/folderlist.txt
           echo 'hostname' >> artifacts/hostname.txt
+
       - name: upload single file
-        uses: actions/upload-artifact@v7.0.1
+        uses: actions/upload-artifact@v4
         with:
           name: singlefile
           path: ./singlefile.txt
-      # - name: upload folder
-      #   uses: actions/upload-artifact@v7.0.1
-      #   with:
-      #     name: my-artifact
-      #     path: ./
+
   second-job:
+    needs: simple-job
     runs-on: ubuntu-latest
     steps:
-      - name: checkout directory
-        run: pwd
-          ls -ltr
       - name: download artifact
-        uses: actions/download-artifact@v8.0.1
+        uses: actions/download-artifact@v4
         with:
           name: singlefile
 
-      - name: checkout directory
-        run: pwd
+      - name: verify downloaded files
+        run: |
+          pwd
           ls -ltr
+          cat singlefile.txt
