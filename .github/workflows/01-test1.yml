@@ -16,6 +16,11 @@ jobs:
         uses: actions/checkout@v5
       - name: step 3
         run: |
-          pwd
+          echo pwd >> singlefile.txt
           ls -la
           hostname
+      - name: upload single file
+        uses: actions/upload-artifact@v3
+        with:
+          name: singlefile
+          path: ./singlefile.txt
