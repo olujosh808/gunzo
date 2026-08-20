@@ -11,6 +11,7 @@ jobs:
         run: echo "Hello, GitHub Actions!"
       - name: Print OS Release Information
         run: cat /etc/os-release
+
   second-job:
     runs-on: ubuntu-latest
     steps:
@@ -18,3 +19,17 @@ jobs:
         run: 'echo "Current date and time: $(date)"'
       - name: List Files in Current Directory
         run: ls -la
+
+  third_job:
+    runs-on: ubuntu-latest
+    needs: simple-job
+    steps:
+      - name: deploy for a bit
+        run: sleep 10
+
+  forth_job:
+    runs-on: ubuntu-latest
+    needs: [simple-job, second-job, third_job]
+    steps:
+      - name: Print Disk Usage
+        run: sleep 10
