@@ -17,10 +17,16 @@ jobs:
       - name: step 3
         run: |
           echo 'pwd' >> singlefile2.txt
-          ls -la
-          hostname
+          mkdir artifacts
+          echo 'ls -la' >> artifacts/folderlist.txt
+          echo 'hostname' >> artifacts/hostname.txt
       - name: upload single file
         uses: actions/upload-artifact@v7.0.1
         with:
           name: singlefile
           path: ./singlefile.txt
+      - name: upload folder
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: my-artifact
+          path: /artifact/singlefile2.txt
