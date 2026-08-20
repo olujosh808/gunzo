@@ -25,11 +25,11 @@ jobs:
         with:
           name: singlefile
           path: ./singlefile.txt
-      - name: upload folder
-        uses: actions/upload-artifact@v7.0.1
-        with:
-          name: my-artifact
-          path: /artifact/singlefile2.txt
+      # - name: upload folder
+      #   uses: actions/upload-artifact@v7.0.1
+      #   with:
+      #     name: my-artifact
+      #     path: ./
   second-job:
     runs-on: ubuntu-latest
     steps:
