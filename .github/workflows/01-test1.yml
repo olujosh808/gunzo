@@ -20,7 +20,7 @@ jobs:
           ls -la
           hostname
       - name: upload single file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: singlefile
           path: ./singlefile.txt
