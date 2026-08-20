@@ -11,5 +11,4 @@ jobs:
         run: echo "Hello, GitHub Actions!"
 
       - name: Run Multiple Commands
-        run: |
-          echo cat /etc/os-release
+        run: echo "cat /etc/os-release"
