@@ -9,6 +9,12 @@ jobs:
     steps:
       - name: Print Hello World
         run: echo "Hello, GitHub Actions!"
-
       - name: Print OS Release Information
         run: cat /etc/os-release
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Current Date and Time
+        run: 'echo "Current date and time: $(date)"'
+      - name: List Files in Current Directory
+        run: ls -la
