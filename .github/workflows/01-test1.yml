@@ -11,6 +11,4 @@ jobs:
 
       - name: Run Multiple Commands
         run: |
-          echo "Current directory:"
-          pwd
-          echo "Environment checks complete."
+          echo cat /etc/os-release
