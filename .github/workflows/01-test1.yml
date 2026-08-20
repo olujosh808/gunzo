@@ -30,3 +30,17 @@ jobs:
         with:
           name: my-artifact
           path: /artifact/singlefile2.txt
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout directory
+        run: ls -la
+          pwd
+      - name: download artifact
+        uses: actions/download-artifact@v8.0.1
+        with:
+          name: singlefile
+
+      - name: checkout directory
+        run: ls -la
+          pwd
