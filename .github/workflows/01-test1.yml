@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - Dev
+      - features/*
 
 jobs:
   simple-job:
