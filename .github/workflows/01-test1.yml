@@ -2,6 +2,8 @@ name: First run-name
 on:
   push:
     branches:
+      - Dev
+      - "feauture/*"
       - main
 
 jobs:
