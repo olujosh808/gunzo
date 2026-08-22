@@ -2,10 +2,10 @@ name: First run-name
 on:
   push:
     branches:
-      - main
-  pull_request:
+     - main
+  pull-request:
     branches:
-      - main
+     - main
 
 env:
   NAME: "Development"
