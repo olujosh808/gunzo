@@ -2,8 +2,10 @@ name: First run-name
 on:
   push:
     branches:
-      - Dev
-      - features/*
+     - main
+  pull-request:
+    branches:
+     - main
 
 jobs:
   simple-job:
@@ -45,3 +47,5 @@ jobs:
           pwd
           ls -ltr
           cat singlefile.txt
+      - name: kill code
+        run: exit 0
