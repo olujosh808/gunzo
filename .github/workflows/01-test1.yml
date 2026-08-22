@@ -7,6 +7,10 @@ on:
     branches:
       - main
 
+env:
+  NAME: "Development"
+  APP_USER: "olusegun"
+  APP_PORT: "80"
 jobs:
   simple-job:
     runs-on: ubuntu-latest
@@ -41,6 +45,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: singlefile
+      - name: referencing enironment variables
+        run: |
+          echo "Environment name is $NAME"
+          echo "Application user is $APP_USER"
+          echo "Application port is $APP_PORT"
 
       - name: verify downloaded files
         run: |
