@@ -46,6 +46,4 @@ jobs:
           ls -ltr
           cat singlefile.txt
       - name: kill code
-        run: |
-          echo "killing the code"
-          exit 1
+        run: exit 1
