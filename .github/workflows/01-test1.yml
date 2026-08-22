@@ -2,10 +2,10 @@ name: First run-name
 on:
   push:
     branches:
-     - main
+      - main
   pull_request:
     branches:
-     - main
+      - main
 
 env:
   NAME: "Development"
@@ -47,7 +47,7 @@ jobs:
           name: singlefile
       - name: referencing enironment variables
         run: |
-          echo "Environment name is $NAME"
+          echo "Environment name is $NAME Egbedire"
           echo "Application user is $APP_USER"
           echo "Application port is $APP_PORT"
 
