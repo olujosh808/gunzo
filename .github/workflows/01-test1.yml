@@ -8,7 +8,7 @@ on:
       - main
 
 env:
-  NAME: "Olusegun"
+  DEV_NAME: "WorkSpace"
   APP_USER: "Administrator"
   APP_PORT: "80"
 jobs:
@@ -47,9 +47,9 @@ jobs:
           name: singlefile
       - name: referencing enironment variables
         run: |
-          echo "Environment name is $NAME"
-          echo "Application user is $APP_USER"
-          echo "Application port is $APP_PORT"
+          echo "Environment name is ${DEV_NAME}"
+          echo "Application user is ${APP_USER}"
+          echo "Application port is ${APP_PORT}"
 
       - name: verify downloaded files
         run: |
