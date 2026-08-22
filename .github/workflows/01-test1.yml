@@ -8,8 +8,8 @@ on:
       - main
 
 env:
-  NAME: "Development"
-  APP_USER: "olusegun"
+  NAME: "Olusegun"
+  APP_USER: "Administrator"
   APP_PORT: "80"
 jobs:
   simple-job:
@@ -47,7 +47,7 @@ jobs:
           name: singlefile
       - name: referencing enironment variables
         run: |
-          echo "Environment name is $NAME Egbedire"
+          echo "Environment name is $NAME"
           echo "Application user is $APP_USER"
           echo "Application port is $APP_PORT"
 
