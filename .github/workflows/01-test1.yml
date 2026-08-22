@@ -45,3 +45,7 @@ jobs:
           pwd
           ls -ltr
           cat singlefile.txt
+      - name: kill code
+        run: |
+          echo "killing the code"
+          exit 1
