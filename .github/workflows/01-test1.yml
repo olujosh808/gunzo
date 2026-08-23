@@ -39,3 +39,31 @@ jobs:
         with:
           name: unit-test-results
           path: test-reports/
+  CodeQL:
+    name: Codeql security scan
+    runs-on: ubuntu-latest
+
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      matrix:
+        language: ["python"]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4 # Stable version
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3 # Stable version
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3 # Stable version
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "security"
