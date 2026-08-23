@@ -24,4 +24,10 @@ jobs:
           pip install -r requirements.txt
       - name: run tests
         run: |
-          pytest -v
+          mkdir test-reports/
+          pytest --junitxml=test-reports/unit-test-results.xml --cov=. --cov-report=xml --cov-report=term -missing -v
+      - name: upload test results
+        uses: actions/upload-artifact@v7
+        with:
+          name: unit-test-results
+          path: test-reports/
