@@ -13,22 +13,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check out code
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4 # Safely downgraded to the current stable major version
+
       - name: set up Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@v5 # Stable version
         with:
           python-version: "3.11"
+          cache: "pip" # Opportunity captured: This will cache your dependencies and speed up the run!
+
       - name: install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
       - name: run tests
         run: |
           mkdir -p test-reports/
           pytest --collect-only  # See what tests are discovered
-          pytest --junitxml=test-reports/unit-test-results.xml --cov=. --cov-report=xml --cov-report=term -missing -v
+          pytest --junitxml=test-reports/unit-test-results.xml --cov=. --cov-report=xml --cov-report=term-missing -v
+          # Fixed the typo here: "term-missing" now has no space.
+
       - name: upload test results
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4 # Stable version
+        if: always() # Blind spot covered: This ensures the report uploads even if tests fail
         with:
           name: unit-test-results
           path: test-reports/
